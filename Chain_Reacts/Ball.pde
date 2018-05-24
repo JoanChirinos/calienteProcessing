@@ -45,7 +45,7 @@ class Ball {
       heading = (heading * -1 + 360) % 360;
       speed = random(2, 4);
     }
-    fill(circles);
+    fill(0, 0, 0);
     ellipse(x, y, size * 2 + 1, size * 2 + 1);
 
     fill(circles);
