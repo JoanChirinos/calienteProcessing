@@ -29,7 +29,7 @@ class Ball {
     float g = random(255);
     float b = random(255);
     circles = color(r, g, b);
-    
+
     //set speed to a random, but reasonable, speed (in pixels/frame)
     speed = random(2, 4);
 
@@ -45,8 +45,8 @@ class Ball {
       heading = (heading * -1 + 360) % 360;
       speed = random(2, 4);
     }
-    fill(0, 0, 0);
-    ellipse(x, y, size * 2 + 1, size * 2 + 1);
+    //fill(0, 0, 0);
+    //ellipse(x, y, size * 2 + 1, size * 2 + 1);
 
     fill(circles);
     //move ball in direction heading (0 is right) a distance of speed

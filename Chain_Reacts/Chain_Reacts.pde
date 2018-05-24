@@ -22,6 +22,7 @@ void setup() {
 // if toggled, move
 void draw() {
   if (moveToggle) {
+    background(0, 0, 0);
     for (Ball b : balls) {
       b.move();
     }
