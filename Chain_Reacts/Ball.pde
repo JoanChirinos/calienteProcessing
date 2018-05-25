@@ -19,6 +19,7 @@ class Ball {
   int state;
   color c;
 
+  //sets up the ball with vals
   Ball(int newState, float newX, float newY) {
     state = newState;
     x = newX;
@@ -29,7 +30,8 @@ class Ball {
     dx = random(1, 4);
     dy = random(1, 4);
   }
-
+  
+  //calls fxn depending on ball state
   void action() {
     fill(c);
     if (state == MOVING) move();
@@ -37,6 +39,7 @@ class Ball {
     else if (state == SHRINKING) shrink();
   }
 
+  //moves the ball based on its dx and dy
   void move() {
     if (x <= rad || x >= 600 - rad) dx *= -1;
     else if (y <= rad || y >= 600 - rad) dy *= -1;
@@ -45,6 +48,7 @@ class Ball {
     ellipse(x, y, size, size);
   }
 
+  //grows ball until the max radius is reached. Then it sets the state to shrinking
   void grow() {
     if (rad < MAX_RADIUS) {
       size += CHANGE_FACTOR;
@@ -53,6 +57,7 @@ class Ball {
     } else state = SHRINKING;
   }
 
+  //shrinks ball until size <= 0. Then it sets the state to dead
   void shrink() {
     if (rad > 0) {
       size -= CHANGE_FACTOR;

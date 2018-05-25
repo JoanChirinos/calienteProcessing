@@ -24,6 +24,8 @@ void draw() {
   background(0, 0, 0);
   for (int i = 0; i < balls.size(); i++) {
     Ball test1 = balls.get(i);
+    
+    //this just tests if any growing and moving balls are touching
     for (int otherBall = i + 1; otherBall < balls.size(); otherBall++) {
       Ball test2 = balls.get(otherBall);
       if (touching(test1, test2)) {
@@ -35,14 +37,18 @@ void draw() {
         }
       }
     }
+    
+    //does the respective action on each ball
     test1.action();
   }
 }
 
 void mouseClicked() {
+  //adds a new growing ball to the AL that stores balls
   balls.add(new Ball(1, mouseX, mouseY));
 }
 
 boolean touching(Ball b1, Ball b2) {
+  //returns true if balls are touching using Pythagoream Formula
   return pow(b1.x - b2.x, 2) + pow(b1.y - b2.y, 2) < pow(b1.rad + b2.rad, 2);
 }
